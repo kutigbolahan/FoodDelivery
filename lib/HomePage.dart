@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'DetailScreen.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -78,12 +82,18 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       _round(
                           CupertinoIcons.map_pin_ellipse, Colors.yellowAccent),
+                      SizedBox(
+                        height: 5,
+                      ),
                       _text('Chinese')
                     ],
                   ),
                   Column(
                     children: [
                       _round(CupertinoIcons.map_pin_ellipse, Colors.white),
+                      SizedBox(
+                        height: 5,
+                      ),
                       _text('Italian')
                     ],
                   ),
@@ -125,16 +135,32 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontWeight: FontWeight.w300),
               ),
               SizedBox(
-                height: 10,
+                height: 15,
               ),
-              ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  child: Image.asset(
-                    'assets/images/3.jpg',
-                    fit: BoxFit.cover,
-                    width: 400,
-                    height: 250,
-                  )),
+              GestureDetector(
+                onTap: () {
+                  Platform.isIOS
+                      ? Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (context) => DetailScreen()))
+                      : Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DetailScreen()));
+                },
+                child: ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    child: Hero(
+                      tag: 'omo',
+                      child: Image.asset(
+                        'assets/images/3.jpg',
+                        fit: BoxFit.cover,
+                        width: 400,
+                        height: 200,
+                      ),
+                    )),
+              ),
               ListTile(
                   trailing: Text('&&'),
                   title: Text(
@@ -147,11 +173,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   subtitle: Row(
                     children: [
                       Icon(CupertinoIcons.star),
+                      SizedBox(
+                        width: 5,
+                      ),
                       Text('4.5'),
                       SizedBox(
                         width: 10,
                       ),
                       Icon(CupertinoIcons.timer),
+                      SizedBox(
+                        width: 5,
+                      ),
                       Text('25-40minutes'),
                     ],
                   )),
@@ -161,7 +193,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     'assets/images/4.jpg',
                     fit: BoxFit.cover,
                     width: 400,
-                    height: 250,
+                    height: 200,
                   )),
               ListTile(
                   trailing: Text('&&'),
@@ -175,11 +207,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   subtitle: Row(
                     children: [
                       Icon(CupertinoIcons.star),
+                      SizedBox(
+                        width: 5,
+                      ),
                       Text('3.5'),
                       SizedBox(
                         width: 10,
                       ),
                       Icon(CupertinoIcons.timer),
+                      SizedBox(
+                        width: 5,
+                      ),
                       Text('20-30minutes'),
                     ],
                   ))
