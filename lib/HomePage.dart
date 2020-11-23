@@ -16,7 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.all(18.0),
+        padding: const EdgeInsets.all(15.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: Colors.black, fontWeight: FontWeight.w300),
                   ),
                   SizedBox(
-                    width: 200,
+                    width: 210,
                   ),
                   Icon(CupertinoIcons.equal),
                 ],
@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Text(
                     'View all',
                     style: TextStyle(
-                        fontSize: 10,
+                        fontSize: 13,
                         color: Colors.black,
                         fontWeight: FontWeight.w300),
                   ),
@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 10,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     children: [
